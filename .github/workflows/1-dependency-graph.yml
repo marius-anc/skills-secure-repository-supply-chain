@@ -19,7 +19,7 @@ env:
 jobs:
   find_exercise:
     name: Find Exercise Issue
-    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.7.3
+    uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.9.3
     if: |
       github.run_number != 1
 
@@ -35,10 +35,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Get response templates
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
@@ -53,7 +53,7 @@ jobs:
           direction: last
 
       - name: Update comment - checking work
-        uses: GrantBirki/comment@v2.1.1
+        uses: GrantBirki/comment@v3.0.3
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
@@ -85,7 +85,7 @@ jobs:
           keyphrase: "1\\.14\\.1"
 
       - name: Update comment - step results
-        uses: GrantBirki/comment@v2.1.1
+        uses: GrantBirki/comment@v3.0.3
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
@@ -116,17 +116,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Get response templates
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
           ref: v0.7.3
 
       - name: Create comment - step finished
-        uses: GrantBirki/comment@v2.1.1
+        uses: GrantBirki/comment@v3.0.3
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
@@ -135,14 +135,14 @@ jobs:
             next_step_number: 2
 
       - name: Create comment - add step content
-        uses: GrantBirki/comment@v2.1.1
+        uses: GrantBirki/comment@v3.0.3
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
           file: ${{ env.STEP_2_FILE }}
 
       - name: Create comment - watching for progress
-        uses: GrantBirki/comment@v2.1.1
+        uses: GrantBirki/comment@v3.0.3
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
